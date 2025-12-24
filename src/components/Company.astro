@@ -1,0 +1,154 @@
+---
+const companyInfo = {
+  name: 'MAST11',
+  address: '〒650-0023 神戸市中央区栄町通二丁目4番13号 神栄ビル203号',
+  mapQuery: '神戸市中央区栄町通二丁目4番13号',
+};
+---
+
+<section class="company" id="company">
+  <div class="container">
+    <div class="company-header" data-animate>
+      <span class="company-label">COMPANY</span>
+      <h2 class="company-heading">会社情報</h2>
+    </div>
+    <div class="company-content">
+      <div class="company-info" data-animate data-animate-delay="1">
+        <dl class="company-list">
+          <div class="company-item">
+            <dt>会社名</dt>
+            <dd>{companyInfo.name}</dd>
+          </div>
+          <div class="company-item">
+            <dt>所在地</dt>
+            <dd>{companyInfo.address}</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="company-map" data-animate data-animate-delay="2">
+        <iframe
+          src={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.mapQuery)}&output=embed`}
+          width="100%"
+          height="300"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="MAST11 所在地"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .company {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-bg-alt);
+  }
+
+  .company-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .company-label {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .company-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--color-primary);
+  }
+
+  .company-heading {
+    font-size: var(--font-size-3xl);
+    color: var(--color-text);
+  }
+
+  .company-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
+  }
+
+  .company-info {
+    background: var(--color-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .company-list {
+    margin: 0;
+  }
+
+  .company-item {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .company-item:last-child {
+    border-bottom: none;
+  }
+
+  .company-item dt {
+    flex-shrink: 0;
+    width: 80px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+  }
+
+  .company-item dd {
+    margin: 0;
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .company-map {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  .company-map iframe {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .company {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .company-content {
+      grid-template-columns: 1fr;
+    }
+
+    .company-item {
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .company-item dt {
+      width: auto;
+    }
+  }
+</style>

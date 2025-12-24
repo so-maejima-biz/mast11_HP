@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#007BA7"/>
+      <stop offset="100%" style="stop-color:#004d6a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#heroGrad)"/>
+
+  <!-- Subtle geometric accent -->
+  <circle cx="1500" cy="300" r="400" fill="#ffffff" opacity="0.03"/>
+  <circle cx="200" cy="800" r="300" fill="#ffffff" opacity="0.02"/>
+
+  <!-- Stylized shoe silhouette -->
+  <g transform="translate(1050, 350)" opacity="0.08">
+    <path d="M0,150 Q80,80 200,120 Q380,50 550,100 L620,160 Q650,220 600,260 L80,290 Q0,280 0,200 Z"
+          fill="#ffffff"/>
+    <path d="M80,290 L600,260 Q640,310 580,340 L100,370 Q50,350 80,290 Z"
+          fill="#ffffff" opacity="0.7"/>
+  </g>
+
+  <!-- Simple accent lines -->
+  <line x1="0" y1="800" x2="600" y2="800" stroke="#ffffff" stroke-width="1" opacity="0.1"/>
+  <line x1="1400" y1="280" x2="1920" y2="280" stroke="#ffffff" stroke-width="1" opacity="0.1"/>
+</svg>

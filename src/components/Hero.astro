@@ -2,27 +2,28 @@
 ---
 
 <section class="hero">
+  <div class="hero-bg">
+    <img
+      src="/images/A_modern_SVG_illustration_designed_for_the_hero_se-1766585285175.png"
+      alt=""
+      class="hero-bg-image"
+      loading="eager"
+    />
+    <div class="hero-overlay"></div>
+  </div>
   <div class="container hero-content">
+    <p class="hero-eyebrow">SPORTS FOOTWEAR SPECIALIST</p>
     <h1 class="hero-title">
-      全工程に、責任を。
+      全工程に、<br />責任を。
     </h1>
     <p class="hero-subtitle">
-      企画から生産まで一貫して手がける、<br class="br-mobile" />
+      企画から生産まで一貫して手がける、<br class="br-sp" />
       ものづくりのプロフェッショナル集団
     </p>
     <div class="hero-cta">
       <a href="#contact" class="btn btn-primary btn-lg">お問い合わせ</a>
       <a href="#about" class="btn btn-outline btn-lg">詳しく見る</a>
     </div>
-  </div>
-  <div class="hero-bg">
-    <img
-      src="/images/hero-placeholder.svg"
-      alt=""
-      class="hero-bg-image"
-      loading="eager"
-    />
-    <div class="hero-overlay"></div>
   </div>
 </section>
 
@@ -32,63 +33,8 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 72px; /* Header height */
+    padding-top: 72px;
     overflow: hidden;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: var(--spacing-3xl) 0;
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-bg);
-    margin-bottom: var(--spacing-lg);
-    letter-spacing: 0.05em;
-    line-height: 1.2;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: var(--spacing-2xl);
-    line-height: var(--line-height-relaxed);
-  }
-
-  .br-mobile {
-    display: none;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .hero-cta .btn-primary {
-    background-color: var(--color-bg);
-    color: var(--color-primary);
-    border-color: var(--color-bg);
-  }
-
-  .hero-cta .btn-primary:hover {
-    background-color: var(--color-primary-bg);
-    border-color: var(--color-primary-bg);
-  }
-
-  .hero-cta .btn-outline {
-    color: var(--color-bg);
-    border-color: var(--color-bg);
-  }
-
-  .hero-cta .btn-outline:hover {
-    background-color: var(--color-bg);
-    color: var(--color-primary);
   }
 
   .hero-bg {
@@ -106,23 +52,88 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(0, 123, 167, 0.85) 0%,
-      rgba(0, 95, 130, 0.9) 100%
-    );
+    background: linear-gradient(135deg, rgba(0, 123, 167, 0.85) 0%, rgba(0, 77, 106, 0.9) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding: var(--spacing-3xl) 0;
+    max-width: 700px;
+  }
+
+  .hero-eyebrow {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.2em;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-bg);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--spacing-2xl);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .br-sp {
+    display: none;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+  }
+
+  .hero-cta .btn-primary {
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    border-color: var(--color-bg);
+  }
+
+  .hero-cta .btn-primary:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-cta .btn-outline {
+    color: var(--color-bg);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .hero-cta .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-bg);
   }
 
   @media (max-width: 768px) {
     .hero {
-      min-height: 90vh;
+      min-height: 85vh;
     }
 
-    .br-mobile {
+    .hero-content {
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .br-sp {
       display: block;
     }
 
     .hero-cta {
+      justify-content: center;
       flex-direction: column;
       align-items: center;
     }

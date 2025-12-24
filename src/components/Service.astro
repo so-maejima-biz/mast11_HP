@@ -1,22 +1,22 @@
 ---
 const services = [
   {
-    icon: '01',
+    number: '01',
     title: '企画・コンセプト',
     description: 'マーケットリサーチから商品コンセプトの策定まで、ブランドの世界観を形にします。',
   },
   {
-    icon: '02',
+    number: '02',
     title: 'ラスト・ソール設計',
     description: '履き心地と機能性を追求した、独自のラスト設計とソール開発を行います。',
   },
   {
-    icon: '03',
+    number: '03',
     title: 'アッパーデザイン',
     description: 'トレンドと機能性を両立したアッパーデザインで、商品価値を高めます。',
   },
   {
-    icon: '04',
+    number: '04',
     title: '生産・品質管理',
     description: '信頼できる協力工場と連携し、細部までこだわった品質管理を実践します。',
   },
@@ -25,14 +25,14 @@ const services = [
 
 <section class="service" id="service">
   <div class="container">
-    <div class="service-header">
-      <h2 class="section-title-center">SERVICE</h2>
-      <p class="section-subtitle">一貫したものづくりで、価値を創造する</p>
+    <div class="service-header" data-animate>
+      <span class="service-label">SERVICE</span>
+      <h2 class="service-heading">一貫したものづくりで、<br class="br-sp" />価値を創造する</h2>
     </div>
     <div class="service-grid">
-      {services.map(service => (
-        <div class="service-card">
-          <span class="service-icon">{service.icon}</span>
+      {services.map((service, index) => (
+        <div class="service-card" data-animate data-animate-delay={index + 1}>
+          <span class="service-number">{service.number}</span>
           <h3 class="service-title">{service.title}</h3>
           <p class="service-description">{service.description}</p>
         </div>
@@ -58,57 +58,72 @@ const services = [
     margin-bottom: var(--spacing-3xl);
   }
 
-  .section-title-center {
-    font-size: var(--font-size-3xl);
+  .service-label {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
     color: var(--color-primary);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
   }
 
-  .section-subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-secondary);
+  .service-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--color-primary);
+  }
+
+  .service-heading {
+    font-size: var(--font-size-3xl);
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+
+  .br-sp {
+    display: none;
   }
 
   .service-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
     margin-bottom: var(--spacing-3xl);
   }
 
   .service-card {
     background: var(--color-bg);
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-xl) var(--spacing-lg);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    text-align: center;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    text-align: left;
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   }
 
   .service-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 12px 24px rgba(0, 123, 167, 0.12);
+    border-color: var(--color-primary);
   }
 
-  .service-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    background: var(--color-primary);
-    color: var(--color-bg);
-    font-size: var(--font-size-lg);
+  .service-number {
+    display: block;
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
-    border-radius: var(--radius-full);
-    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
   }
 
   .service-title {
     font-size: var(--font-size-lg);
     color: var(--color-text);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
   }
 
   .service-description {
@@ -121,13 +136,14 @@ const services = [
   .service-cta {
     text-align: center;
     padding: var(--spacing-2xl);
-    background: var(--color-primary-bg);
+    background: var(--color-bg);
     border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
   }
 
   .service-cta-text {
-    font-size: var(--font-size-lg);
-    color: var(--color-text);
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
     margin-bottom: var(--spacing-lg);
   }
 
@@ -142,12 +158,16 @@ const services = [
       padding: var(--spacing-3xl) 0;
     }
 
+    .br-sp {
+      display: block;
+    }
+
     .service-grid {
       grid-template-columns: 1fr;
     }
 
     .service-card {
-      padding: var(--spacing-xl);
+      padding: var(--spacing-lg);
     }
   }
 </style>

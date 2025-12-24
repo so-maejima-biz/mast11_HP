@@ -1,0 +1,155 @@
+---
+const oemFeatures = [
+  {
+    title: '小ロット対応',
+    description: '100足からの小ロット生産に対応。テストマーケティングや限定商品に最適です。',
+  },
+  {
+    title: 'ワンストップ',
+    description: '企画・デザインから生産・納品まで一貫対応。複数業者との調整は不要です。',
+  },
+  {
+    title: '品質保証',
+    description: '国内メーカー出身のエンジニアが品質を担保。細部まで妥協のない仕上がりをお届けします。',
+  },
+];
+---
+
+<section class="oem" id="oem">
+  <div class="container">
+    <div class="oem-header" data-animate>
+      <span class="oem-label">OEM / ODM</span>
+      <h2 class="oem-heading">あなたのブランドを、<br class="br-sp" />カタチにします</h2>
+      <p class="oem-lead">
+        スポーツシューズのOEM・ODMを承ります。<br />
+        お客様のアイデアを、私たちの技術で具現化します。
+      </p>
+    </div>
+    <div class="oem-grid">
+      {oemFeatures.map((feature, index) => (
+        <div class="oem-card" data-animate data-animate-delay={index + 1}>
+          <h3 class="oem-card-title">{feature.title}</h3>
+          <p class="oem-card-description">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="oem-cta">
+      <a href="#contact" class="btn btn-primary">OEMのご相談</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .oem {
+    padding: var(--spacing-4xl) 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  }
+
+  .oem-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .oem-label {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .oem-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .oem-heading {
+    font-size: var(--font-size-3xl);
+    color: var(--color-bg);
+    line-height: 1.4;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .br-sp {
+    display: none;
+  }
+
+  .oem-lead {
+    font-size: var(--font-size-base);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .oem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .oem-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform var(--transition-base), background var(--transition-base);
+  }
+
+  .oem-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .oem-card-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-bg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .oem-card-description {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  .oem-cta {
+    text-align: center;
+  }
+
+  .oem-cta .btn-primary {
+    background: var(--color-bg);
+    color: var(--color-primary);
+    border-color: var(--color-bg);
+  }
+
+  .oem-cta .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 768px) {
+    .oem {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .br-sp {
+      display: block;
+    }
+
+    .oem-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

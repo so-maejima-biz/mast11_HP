@@ -65,7 +65,8 @@ git push -u origin main
 #### Step 2: Cloudflare Pages プロジェクト作成
 
 1. [Cloudflare Dashboard](https://dash.cloudflare.com/) にログイン
-2. 左メニュー「Workers & Pages」をクリック
+2. 左メニュー「コンピューティング と AI」→「Workers & Pages」をクリック
+   （※UIが変更されている場合は「ビルド」セクション内を探す）
 3. 「Create」→「Pages」→「Connect to Git」
 4. GitHubアカウントを連携
 5. リポジトリ「mast11_HP」を選択

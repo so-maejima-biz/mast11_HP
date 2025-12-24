@@ -4,7 +4,8 @@
 <section class="about" id="about">
   <div class="container">
     <div class="about-content">
-      <div class="about-text">
+      <div class="about-text" data-animate>
+        <span class="about-label">ABOUT US</span>
         <h2 class="section-title">技術で、形にする。</h2>
         <p class="about-lead">
           国内メーカー出身のエンジニアが、長年培った技術と経験で
@@ -20,10 +21,10 @@
           企画から納品まで、ワンストップでお任せいただけます。
         </p>
       </div>
-      <div class="about-image">
+      <div class="about-image" data-animate data-animate-delay="1">
         <img
-          src="/images/about-placeholder.svg"
-          alt="シューズ製造の様子"
+          src="/images/Gs0DWrWK.png"
+          alt="スポーツシューズの製造"
           loading="lazy"
           class="about-img"
         />
@@ -45,23 +46,35 @@
     align-items: center;
   }
 
-  .section-title {
+  .about-label {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
     color: var(--color-primary);
-    margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-md);
     position: relative;
+    padding-bottom: var(--spacing-sm);
   }
 
-  .section-title::after {
+  .about-label::after {
     content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
     background: var(--color-primary);
-    margin-top: var(--spacing-md);
+  }
+
+  .section-title {
+    font-size: var(--font-size-3xl);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xl);
   }
 
   .about-lead {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-lg);
     font-weight: var(--font-weight-medium);
     color: var(--color-text);
     margin-bottom: var(--spacing-lg);
@@ -78,7 +91,7 @@
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    background: var(--color-bg-alt);
   }
 
   .about-img {

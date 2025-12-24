@@ -3,12 +3,12 @@
 
 <section class="contact" id="contact">
   <div class="container">
-    <div class="contact-header">
+    <div class="contact-header" data-animate>
       <h2 class="section-title-center">CONTACT</h2>
       <p class="section-subtitle">お気軽にお問い合わせください</p>
     </div>
     <div class="contact-content">
-      <form id="contact-form" class="contact-form" novalidate>
+      <form id="contact-form" class="contact-form" data-animate data-animate-delay="1" novalidate>
         <div class="form-row">
           <div class="form-group">
             <label for="name" class="form-label form-label-required">お名前</label>
@@ -98,6 +98,20 @@
     color: var(--color-primary);
     letter-spacing: 0.1em;
     margin-bottom: var(--spacing-md);
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .section-title-center::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: var(--color-primary);
   }
 
   .section-subtitle {
