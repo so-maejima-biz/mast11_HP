@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Service from '../components/Service.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'MAST11 | ものづくりのプロフェッショナル集団';
+const description = 'MAST11はスポーツシューズの企画・開発・生産を一貫して行うプロフェッショナル集団です。OEM/ODMのご相談もお気軽にどうぞ。';
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <About />
+    <Service />
+    <ContactForm />
+  </main>
+  <Footer />
+</Layout>
+
+<style is:global>
+  /* Skip to main content link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    padding: var(--spacing-sm) var(--spacing-md);
+    z-index: 9999;
+    transition: top var(--transition-fast);
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* Smooth scroll offset for fixed header */
+  html {
+    scroll-padding-top: 80px;
+  }
+</style>

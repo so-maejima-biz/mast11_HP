@@ -1,0 +1,265 @@
+---
+---
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-header">
+      <h2 class="section-title-center">CONTACT</h2>
+      <p class="section-subtitle">お気軽にお問い合わせください</p>
+    </div>
+    <div class="contact-content">
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name" class="form-label form-label-required">お名前</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              required
+              maxlength="100"
+              autocomplete="name"
+              placeholder="山田 太郎"
+            />
+            <span class="form-error" id="name-error" aria-live="polite"></span>
+          </div>
+          <div class="form-group">
+            <label for="company" class="form-label">会社名</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              class="form-input"
+              maxlength="100"
+              autocomplete="organization"
+              placeholder="株式会社サンプル"
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label form-label-required">メールアドレス</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            required
+            maxlength="254"
+            autocomplete="email"
+            placeholder="example@email.com"
+          />
+          <span class="form-error" id="email-error" aria-live="polite"></span>
+        </div>
+        <div class="form-group">
+          <label for="message" class="form-label form-label-required">お問い合わせ内容</label>
+          <textarea
+            id="message"
+            name="message"
+            class="form-textarea"
+            required
+            maxlength="5000"
+            placeholder="お問い合わせ内容をご記入ください"
+          ></textarea>
+          <span class="form-error" id="message-error" aria-live="polite"></span>
+        </div>
+
+        <!-- Honeypot field for spam protection -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">
+            送信する
+          </button>
+        </div>
+
+        <div id="form-status" class="form-status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-bg);
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .section-title-center {
+    font-size: var(--font-size-3xl);
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .contact-content {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .contact-form {
+    background: var(--color-bg-alt);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .form-submit {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+  }
+
+  .form-submit .btn {
+    min-width: 200px;
+  }
+
+  .form-status {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .form-status.success {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .form-status.error {
+    background: #f8d7da;
+    color: #721c24;
+  }
+
+  .btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 640px) {
+    .contact {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .contact-form {
+      padding: var(--spacing-xl);
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const statusEl = document.getElementById('form-status') as HTMLDivElement;
+
+  function showError(fieldId: string, message: string) {
+    const errorEl = document.getElementById(`${fieldId}-error`);
+    if (errorEl) {
+      errorEl.textContent = message;
+    }
+  }
+
+  function clearErrors() {
+    document.querySelectorAll('.form-error').forEach(el => {
+      el.textContent = '';
+    });
+  }
+
+  function validateEmail(email: string): boolean {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  function validate(): boolean {
+    clearErrors();
+    let isValid = true;
+
+    const name = (document.getElementById('name') as HTMLInputElement).value.trim();
+    const email = (document.getElementById('email') as HTMLInputElement).value.trim();
+    const message = (document.getElementById('message') as HTMLTextAreaElement).value.trim();
+
+    if (!name) {
+      showError('name', 'お名前を入力してください');
+      isValid = false;
+    }
+
+    if (!email) {
+      showError('email', 'メールアドレスを入力してください');
+      isValid = false;
+    } else if (!validateEmail(email)) {
+      showError('email', '正しいメールアドレスを入力してください');
+      isValid = false;
+    }
+
+    if (!message) {
+      showError('message', 'お問い合わせ内容を入力してください');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!validate()) {
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+    statusEl.hidden = true;
+    statusEl.className = 'form-status';
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        statusEl.textContent = 'お問い合わせを受け付けました。担当者より折り返しご連絡いたします。';
+        statusEl.className = 'form-status success';
+        form.reset();
+      } else {
+        throw new Error(result.message || '送信に失敗しました');
+      }
+    } catch (error) {
+      statusEl.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+      statusEl.className = 'form-status error';
+    } finally {
+      statusEl.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = '送信する';
+    }
+  });
+</script>

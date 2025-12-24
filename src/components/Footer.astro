@@ -1,0 +1,111 @@
+---
+const currentYear = new Date().getFullYear();
+const footerLinks = [
+  { href: '/oem', label: 'OEM' },
+  { href: '/story', label: 'OUR STORY' },
+  { href: '/company', label: 'COMPANY' },
+  { href: '/contact', label: 'CONTACT' },
+  { href: '/privacy', label: 'PRIVACY' },
+];
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo">MAST11</span>
+        <p class="footer-tagline">ものづくりのプロフェッショナル集団</p>
+      </div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <ul class="footer-nav-list">
+          {footerLinks.map(link => (
+            <li>
+              <a href={link.href} class="footer-nav-link">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright">&copy; {currentYear} MAST11 Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--spacing-2xl);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .footer-brand {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .footer-logo {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-light);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-tagline {
+    margin-top: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .footer-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md) var(--spacing-xl);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-nav-link {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-nav-link:hover {
+    color: var(--color-bg);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .copyright {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-nav-list {
+      justify-content: center;
+    }
+  }
+</style>

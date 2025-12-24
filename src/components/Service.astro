@@ -1,0 +1,153 @@
+---
+const services = [
+  {
+    icon: '01',
+    title: '企画・コンセプト',
+    description: 'マーケットリサーチから商品コンセプトの策定まで、ブランドの世界観を形にします。',
+  },
+  {
+    icon: '02',
+    title: 'ラスト・ソール設計',
+    description: '履き心地と機能性を追求した、独自のラスト設計とソール開発を行います。',
+  },
+  {
+    icon: '03',
+    title: 'アッパーデザイン',
+    description: 'トレンドと機能性を両立したアッパーデザインで、商品価値を高めます。',
+  },
+  {
+    icon: '04',
+    title: '生産・品質管理',
+    description: '信頼できる協力工場と連携し、細部までこだわった品質管理を実践します。',
+  },
+];
+---
+
+<section class="service" id="service">
+  <div class="container">
+    <div class="service-header">
+      <h2 class="section-title-center">SERVICE</h2>
+      <p class="section-subtitle">一貫したものづくりで、価値を創造する</p>
+    </div>
+    <div class="service-grid">
+      {services.map(service => (
+        <div class="service-card">
+          <span class="service-icon">{service.icon}</span>
+          <h3 class="service-title">{service.title}</h3>
+          <p class="service-description">{service.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="service-cta">
+      <p class="service-cta-text">
+        OEM・ODMのご相談も承ります。まずはお気軽にお問い合わせください。
+      </p>
+      <a href="#contact" class="btn btn-primary">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .service {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-bg-alt);
+  }
+
+  .service-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .section-title-center {
+    font-size: var(--font-size-3xl);
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .service-card {
+    background: var(--color-bg);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .service-title {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .service-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  .service-cta {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    background: var(--color-primary-bg);
+    border-radius: var(--radius-lg);
+  }
+
+  .service-cta-text {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  @media (max-width: 1024px) {
+    .service-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .service {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .service-card {
+      padding: var(--spacing-xl);
+    }
+  }
+</style>

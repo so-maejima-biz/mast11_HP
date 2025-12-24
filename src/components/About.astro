@@ -1,0 +1,106 @@
+---
+---
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-text">
+        <h2 class="section-title">技術で、形にする。</h2>
+        <p class="about-lead">
+          国内メーカー出身のエンジニアが、長年培った技術と経験で
+          お客様のアイデアを具現化します。
+        </p>
+        <p class="about-description">
+          私たちはスポーツシューズの企画開発生産を一貫して行ってきました。
+          ラスト設計、ソール設計、アッパーデザインまで、すべての工程を
+          自社で手がけることで、細部まで妥協のない品質を実現します。
+        </p>
+        <p class="about-description">
+          AIを活用した効率化と、少数精鋭だからこそ可能なきめ細やかな対応。
+          企画から納品まで、ワンストップでお任せいただけます。
+        </p>
+      </div>
+      <div class="about-image">
+        <img
+          src="/images/about-placeholder.svg"
+          alt="シューズ製造の様子"
+          loading="lazy"
+          class="about-img"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-bg);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+  }
+
+  .section-title {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    margin-top: var(--spacing-md);
+  }
+
+  .about-lead {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .about-description {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-image {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .about {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-2xl);
+    }
+
+    .about-image {
+      order: -1;
+    }
+  }
+</style>
