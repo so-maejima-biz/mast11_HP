@@ -2,7 +2,7 @@
 const navLinks = [
   { href: '#about', label: 'ABOUT' },
   { href: '#service', label: 'SERVICE' },
-  { href: '#oem', label: 'OEM' },
+  { href: '#oem', label: 'OEM/ODM' },
   { href: '#company', label: 'COMPANY' },
   { href: '#contact', label: 'CONTACT' },
 ];
@@ -10,8 +10,9 @@ const navLinks = [
 
 <header class="header">
   <div class="container header-inner">
-    <a href="/" class="logo" aria-label="MAST11 ホームへ">
-      <span class="logo-text">MAST11</span>
+    <a href="/" class="logo" aria-label="MAST11 Co., Ltd. ホームへ">
+      <span class="logo-main">MAST11</span>
+      <span class="logo-sub">Co., Ltd.</span>
     </a>
     <nav class="nav" aria-label="メインナビゲーション">
       <ul class="nav-list">
@@ -61,13 +62,38 @@ const navLinks = [
     display: flex;
     align-items: center;
     text-decoration: none;
+    transition: transform var(--transition-fast);
   }
 
-  .logo-text {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
+  .logo:hover {
+    transform: scale(1.02);
+  }
+
+  .logo-main {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
     color: var(--color-primary);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    transition: color var(--transition-fast);
+  }
+
+  .logo-sub {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+    margin-left: 0.5rem;
+    align-self: flex-end;
+    padding-bottom: 0.15rem;
+    transition: color var(--transition-fast);
+  }
+
+  .logo:hover .logo-main,
+  .logo:hover .logo-sub {
+    color: var(--color-primary-dark);
   }
 
   .nav-list {

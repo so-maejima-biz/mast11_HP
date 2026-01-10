@@ -3,32 +3,32 @@
 
 <section class="about" id="about">
   <div class="container">
-    <div class="about-content">
-      <div class="about-text" data-animate>
-        <span class="about-label">ABOUT US</span>
-        <h2 class="section-title">技術で、形にする。</h2>
-        <p class="about-lead">
-          国内メーカー出身のエンジニアが、長年培った技術と経験で
-          お客様のアイデアを具現化します。
-        </p>
-        <p class="about-description">
-          私たちはスポーツシューズの企画開発生産を一貫して行ってきました。
-          ラスト設計、ソール設計、アッパーデザインまで、すべての工程を
-          自社で手がけることで、細部まで妥協のない品質を実現します。
-        </p>
-        <p class="about-description">
-          AIを活用した効率化と、少数精鋭だからこそ可能なきめ細やかな対応。
-          企画から納品まで、ワンストップでお任せいただけます。
-        </p>
-      </div>
-      <div class="about-image" data-animate data-animate-delay="1">
-        <img
-          src="/images/Gs0DWrWK.png"
-          alt="スポーツシューズの製造"
-          loading="lazy"
-          class="about-img"
-        />
-      </div>
+    <div class="about-header" data-animate>
+      <span class="about-label">ABOUT US</span>
+      <h2 class="section-title">技術で、アイデアをカタチにする。</h2>
+      <p class="about-lead">
+        国内メーカー出身のエンジニアが、長年培った技術と経験で<br class="br-sp" />
+        お客様のアイデアを具現化します。
+      </p>
+    </div>
+    <div class="about-image" data-animate data-animate-delay="1">
+      <img
+        src="/images/2PAGE目 (2).png"
+        alt="フットウェアの技術と製造"
+        loading="lazy"
+        class="about-img"
+      />
+    </div>
+    <div class="about-description-wrapper" data-animate data-animate-delay="2">
+      <p class="about-description">
+        私たちはスポーツシューズ及びライフスタイルシューズの企画開発生産を一貫して行ってきました。
+        ラスト設計、ソール設計、アッパーデザインまで、すべての工程を
+        自社で手がけることで、細部まで妥協のない品質を実現します。
+      </p>
+      <p class="about-description">
+        少数精鋭だからこそできる迅速なレスポンスと、メーカー出身ならではの「確かな技術」が私たちの誇りです。
+        企画から納品まで、ワンストップでお任せいただけます。
+      </p>
     </div>
   </div>
 </section>
@@ -39,16 +39,14 @@
     background: var(--color-bg);
   }
 
-  .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
-    align-items: center;
+  .about-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
   }
 
   .about-label {
     display: inline-block;
-    font-size: var(--font-size-sm);
+    font-size: calc(var(--font-size-base) * 2.5);
     font-weight: var(--font-weight-medium);
     color: var(--color-primary);
     letter-spacing: 0.15em;
@@ -61,34 +59,37 @@
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    max-width: 80px;
+    height: 3px;
     background: var(--color-primary);
   }
 
   .section-title {
-    font-size: var(--font-size-3xl);
+    font-size: calc(var(--font-size-3xl) * 1.75);
+    font-weight: var(--font-weight-bold);
     color: var(--color-text);
     margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.02em;
+    line-height: 1.3;
   }
 
   .about-lead {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-medium);
     color: var(--color-text);
-    margin-bottom: var(--spacing-lg);
     line-height: var(--line-height-relaxed);
   }
 
-  .about-description {
-    color: var(--color-text-secondary);
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--spacing-md);
+  .br-sp {
+    display: none;
   }
 
   .about-image {
-    position: relative;
+    max-width: 700px;
+    margin: 0 auto var(--spacing-3xl);
     border-radius: var(--radius-lg);
     overflow: hidden;
     background: var(--color-bg-alt);
@@ -98,8 +99,25 @@
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
+  }
+
+  .about-description-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-description:last-child {
+    margin-bottom: 0;
   }
 
   @media (max-width: 768px) {
@@ -107,13 +125,16 @@
       padding: var(--spacing-3xl) 0;
     }
 
-    .about-content {
-      grid-template-columns: 1fr;
-      gap: var(--spacing-2xl);
+    .section-title {
+      font-size: calc(var(--font-size-3xl) * 1.5);
+    }
+
+    .br-sp {
+      display: block;
     }
 
     .about-image {
-      order: -1;
+      max-width: 100%;
     }
   }
 </style>

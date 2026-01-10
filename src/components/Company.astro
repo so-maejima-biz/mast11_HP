@@ -1,7 +1,22 @@
 ---
 const companyInfo = {
-  name: 'MAST11',
+  name: 'MAST11 Co., Ltd.',
+  representative: '代表取締役社長 眞木 秀樹',
+  established: '2014年9月',
+  capital: '1,000万円',
+  employees: '日本7名、台湾5名、ベトナム1名、中国1名',
   address: '〒650-0023 神戸市中央区栄町通二丁目4番13号 神栄ビル203号',
+  tel: '078-392-1168',
+  fax: '078-332-6681',
+  business: [
+    'スポーツシューズ及びライフスタイルシューズの企画・デザイン開発設計',
+    '海外委託工場での生産・品質管理全般',
+  ],
+  offices: '台湾 台中市、ベトナム ナムディン市',
+  bank: 'りそな銀行',
+  suppliers: 'ベトナム、カンボジア、中国の大手製靴工場',
+  clients: '大手スポーツメーカー、大手スポーツ用品販売チェーン、大手アパレル販売チェーン等',
+  affiliate: '株式会社クロステック',
   mapQuery: '神戸市中央区栄町通二丁目4番13号',
 };
 ---
@@ -20,8 +35,58 @@ const companyInfo = {
             <dd>{companyInfo.name}</dd>
           </div>
           <div class="company-item">
+            <dt>代表者</dt>
+            <dd>{companyInfo.representative}</dd>
+          </div>
+          <div class="company-item">
+            <dt>設立</dt>
+            <dd>{companyInfo.established}</dd>
+          </div>
+          <div class="company-item">
+            <dt>資本金</dt>
+            <dd>{companyInfo.capital}</dd>
+          </div>
+          <div class="company-item">
+            <dt>従業員</dt>
+            <dd>{companyInfo.employees}</dd>
+          </div>
+          <div class="company-item">
             <dt>所在地</dt>
             <dd>{companyInfo.address}</dd>
+          </div>
+          <div class="company-item">
+            <dt>Tel / Fax</dt>
+            <dd>Tel: {companyInfo.tel} / Fax: {companyInfo.fax}</dd>
+          </div>
+          <div class="company-item">
+            <dt>事業内容</dt>
+            <dd>
+              <ul class="business-list">
+                {companyInfo.business.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+          <div class="company-item">
+            <dt>連絡事務所</dt>
+            <dd>{companyInfo.offices}</dd>
+          </div>
+          <div class="company-item">
+            <dt>取引銀行</dt>
+            <dd>{companyInfo.bank}</dd>
+          </div>
+          <div class="company-item">
+            <dt>主要仕入先</dt>
+            <dd>{companyInfo.suppliers}</dd>
+          </div>
+          <div class="company-item">
+            <dt>主要得意先</dt>
+            <dd>{companyInfo.clients}</dd>
+          </div>
+          <div class="company-item">
+            <dt>関連会社</dt>
+            <dd>{companyInfo.affiliate}</dd>
           </div>
         </dl>
       </div>
@@ -29,7 +94,6 @@ const companyInfo = {
         <iframe
           src={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.mapQuery)}&output=embed`}
           width="100%"
-          height="300"
           style="border:0;"
           allowfullscreen=""
           loading="lazy"
@@ -54,7 +118,7 @@ const companyInfo = {
 
   .company-label {
     display: inline-block;
-    font-size: var(--font-size-sm);
+    font-size: calc(var(--font-size-base) * 2.5);
     font-weight: var(--font-weight-medium);
     color: var(--color-primary);
     letter-spacing: 0.15em;
@@ -69,14 +133,18 @@ const companyInfo = {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
+    width: 60px;
+    max-width: 80px;
+    height: 3px;
     background: var(--color-primary);
   }
 
   .company-heading {
-    font-size: var(--font-size-3xl);
+    font-size: calc(var(--font-size-3xl) * 1.75);
+    font-weight: var(--font-weight-bold);
     color: var(--color-text);
+    letter-spacing: 0.02em;
+    line-height: 1.3;
   }
 
   .company-content {
@@ -91,6 +159,7 @@ const companyInfo = {
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .company-list {
@@ -110,27 +179,45 @@ const companyInfo = {
 
   .company-item dt {
     flex-shrink: 0;
-    width: 80px;
+    width: 100px;
     font-weight: var(--font-weight-medium);
     color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
   }
 
   .company-item dd {
     margin: 0;
     color: var(--color-text);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     line-height: var(--line-height-relaxed);
+  }
+
+  .business-list {
+    margin: 0;
+    padding-left: var(--spacing-md);
+    list-style: disc;
+  }
+
+  .business-list li {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .business-list li:last-child {
+    margin-bottom: 0;
   }
 
   .company-map {
     border-radius: var(--radius-lg);
     overflow: hidden;
     border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 
   .company-map iframe {
     display: block;
+    width: 100%;
+    height: 500px; /* 固定高さでアスペクト比を維持（16:10相当） */
   }
 
   @media (max-width: 768px) {
@@ -138,8 +225,16 @@ const companyInfo = {
       padding: var(--spacing-3xl) 0;
     }
 
+    .company-heading {
+      font-size: calc(var(--font-size-3xl) * 1.5);
+    }
+
     .company-content {
       grid-template-columns: 1fr;
+    }
+
+    .company-map iframe {
+      height: 400px; /* モバイルでは少し小さく */
     }
 
     .company-item {

@@ -1,16 +1,16 @@
 ---
 const oemFeatures = [
   {
-    title: '小ロット対応',
-    description: '100足からの小ロット生産に対応。テストマーケティングや限定商品に最適です。',
+    title: '海外ネットワーク',
+    description: 'ベトナム、カンボジア、中国の大手製靴工場と提携。高品質な生産体制を実現します。',
   },
   {
     title: 'ワンストップ',
     description: '企画・デザインから生産・納品まで一貫対応。複数業者との調整は不要です。',
   },
   {
-    title: '品質保証',
-    description: '国内メーカー出身のエンジニアが品質を担保。細部まで妥協のない仕上がりをお届けします。',
+    title: '品質管理',
+    description: '国内メーカー出身のエンジニアが設計から生産までの全工程を支える。',
   },
 ];
 ---
@@ -19,9 +19,9 @@ const oemFeatures = [
   <div class="container">
     <div class="oem-header" data-animate>
       <span class="oem-label">OEM / ODM</span>
-      <h2 class="oem-heading">あなたのブランドを、<br class="br-sp" />カタチにします</h2>
+      <h2 class="oem-heading">あなたのブランドを、<br class="br-sp" />カタチにする。</h2>
       <p class="oem-lead">
-        スポーツシューズのOEM・ODMを承ります。<br />
+        フットウェア製品のOEM・ODMを承ります。<br />
         お客様のアイデアを、私たちの技術で具現化します。
       </p>
     </div>
@@ -52,7 +52,7 @@ const oemFeatures = [
 
   .oem-label {
     display: inline-block;
-    font-size: var(--font-size-sm);
+    font-size: calc(var(--font-size-base) * 2.5);
     font-weight: var(--font-weight-medium);
     color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.15em;
@@ -67,16 +67,19 @@ const oemFeatures = [
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
+    width: 60px;
+    max-width: 80px;
+    height: 3px;
     background: rgba(255, 255, 255, 0.6);
   }
 
   .oem-heading {
-    font-size: var(--font-size-3xl);
+    font-size: calc(var(--font-size-3xl) * 1.75);
+    font-weight: var(--font-weight-bold);
     color: var(--color-bg);
-    line-height: 1.4;
+    line-height: 1.3;
     margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.02em;
   }
 
   .br-sp {
@@ -84,7 +87,7 @@ const oemFeatures = [
   }
 
   .oem-lead {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg);
     color: rgba(255, 255, 255, 0.85);
     line-height: var(--line-height-relaxed);
   }
@@ -113,12 +116,13 @@ const oemFeatures = [
 
   .oem-card-title {
     font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: var(--color-bg);
     margin-bottom: var(--spacing-sm);
   }
 
   .oem-card-description {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-base);
     color: rgba(255, 255, 255, 0.85);
     line-height: var(--line-height-relaxed);
     margin: 0;
@@ -142,6 +146,10 @@ const oemFeatures = [
   @media (max-width: 768px) {
     .oem {
       padding: var(--spacing-3xl) 0;
+    }
+
+    .oem-heading {
+      font-size: calc(var(--font-size-3xl) * 1.5);
     }
 
     .br-sp {
