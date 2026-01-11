@@ -39,7 +39,7 @@ const services = [
             <p class="service-description">{service.description}</p>
           </div>
           {index < services.length - 1 && (
-            <div class="connector" aria-hidden="true">
+            <div class="connector" data-animate data-animate-delay={index + 1} aria-hidden="true">
               <span class="connector-line"></span>
               <span class="connector-chevron"></span>
               <span class="connector-chevron"></span>
@@ -179,6 +179,51 @@ const services = [
     margin-left: -2px;
   }
 
+  /* ==========================================================================
+     Connector Animation - 流れるように出現
+     ========================================================================== */
+
+  .connector .connector-line {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .connector .connector-chevron {
+    opacity: 0;
+  }
+
+  .connector.is-visible .connector-line {
+    animation: lineGrow 0.4s ease-out forwards;
+  }
+
+  .connector.is-visible .connector-chevron:nth-child(2) {
+    animation: chevronAppear 0.3s ease-out 0.2s forwards;
+  }
+
+  .connector.is-visible .connector-chevron:nth-child(3) {
+    animation: chevronAppear 0.3s ease-out 0.35s forwards;
+  }
+
+  @keyframes lineGrow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes chevronAppear {
+    from {
+      opacity: 0;
+      transform: rotate(-45deg) translateX(-4px);
+    }
+    to {
+      opacity: var(--connector-opacity);
+      transform: rotate(-45deg) translateX(0);
+    }
+  }
+
   /* 数字（倍サイズ） */
   .service-number {
     display: block;
@@ -293,6 +338,49 @@ const services = [
     .connector-chevron:last-child {
       margin-left: 0;
       margin-top: -2px;
+    }
+
+    /* SP: 縦方向アニメーション */
+    .connector .connector-line {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+
+    .connector.is-visible .connector-line {
+      animation: lineGrowVertical 0.4s ease-out forwards;
+    }
+
+    @keyframes lineGrowVertical {
+      from {
+        transform: scaleY(0);
+      }
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+    .connector.is-visible .connector-chevron:nth-child(2),
+    .connector.is-visible .connector-chevron:nth-child(3) {
+      animation: chevronAppearVertical 0.3s ease-out forwards;
+    }
+
+    .connector.is-visible .connector-chevron:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .connector.is-visible .connector-chevron:nth-child(3) {
+      animation-delay: 0.35s;
+    }
+
+    @keyframes chevronAppearVertical {
+      from {
+        opacity: 0;
+        transform: rotate(45deg) translateY(-4px);
+      }
+      to {
+        opacity: var(--connector-opacity);
+        transform: rotate(45deg) translateY(0);
+      }
     }
   }
 </style>
