@@ -10,7 +10,7 @@ const oemFeatures = [
   },
   {
     title: '品質管理',
-    description: '国内メーカー出身のエンジニアが設計から生産までの全工程を支える。',
+    description: '国内メーカー出身のエンジニアが、設計から生産までの全工程を支えます。',
   },
 ];
 ---
@@ -19,7 +19,7 @@ const oemFeatures = [
   <div class="container">
     <div class="oem-header" data-animate>
       <span class="oem-label">OEM / ODM</span>
-      <h2 class="oem-heading">あなたのブランドを、<br class="br-sp" />カタチにする。</h2>
+      <h2 class="oem-heading">あなたのブランドを、<br class="br-sp" />カタチにします。</h2>
       <p class="oem-lead">
         フットウェア製品のOEM・ODMを承ります。<br />
         お客様のアイデアを、私たちの技術で具現化します。
@@ -32,9 +32,6 @@ const oemFeatures = [
           <p class="oem-card-description">{feature.description}</p>
         </div>
       ))}
-    </div>
-    <div class="oem-cta">
-      <a href="#contact" class="btn btn-primary">OEMのご相談</a>
     </div>
   </div>
 </section>
@@ -97,6 +94,7 @@ const oemFeatures = [
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
+    align-items: stretch;
   }
 
   .oem-card {
@@ -107,6 +105,10 @@ const oemFeatures = [
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: transform var(--transition-base), background var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .oem-card:hover {
@@ -122,7 +124,7 @@ const oemFeatures = [
   }
 
   .oem-card-description {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     color: rgba(255, 255, 255, 0.85);
     line-height: var(--line-height-relaxed);
     margin: 0;

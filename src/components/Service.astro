@@ -4,21 +4,25 @@ const services = [
     number: '01',
     title: '企画・デザイン',
     description: 'マーケットリサーチから商品デザインの策定まで、ブランドの世界観を形にします。',
+    image: '/images/planning-design.png',
   },
   {
     number: '02',
     title: 'ラスト・ソール設計',
     description: '履き心地と機能性を追求した、独自のラスト設計とソール開発を行います。',
+    image: '/images/last-sole.png',
   },
   {
     number: '03',
     title: 'サンプル作製',
     description: 'デザインを具現化するサンプル作製により、商品の完成形を実現します。',
+    image: '/images/sample.jpg',
   },
   {
     number: '04',
     title: '生産・品質管理',
     description: '信頼できる協力工場と連携し、細部までこだわった品質管理を実践します。',
+    image: '/images/production-qc.jpg',
   },
 ];
 ---
@@ -27,16 +31,21 @@ const services = [
   <div class="container">
     <div class="service-header" data-animate>
       <span class="service-label">SERVICE</span>
-      <h2 class="service-heading">一貫したものづくりで、<br class="br-sp" />価値を創造する。</h2>
+      <h2 class="service-heading">企画から納品まで、<br />ワンステップでお任せいただけます。</h2>
     </div>
 
     <div class="service-grid">
       {services.map((service, index) => (
         <>
           <div class="service-card" data-animate data-animate-delay={index + 1}>
-            <span class="service-number">{service.number}</span>
-            <h3 class="service-title">{service.title}</h3>
-            <p class="service-description">{service.description}</p>
+            <div class="service-card-media">
+              <img src={service.image} alt="" loading="lazy" />
+            </div>
+            <div class="service-card-body">
+              <span class="service-number">{service.number}</span>
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-description">{service.description}</p>
+            </div>
           </div>
           {index < services.length - 1 && (
             <div class="connector" data-animate data-animate-delay={index + 1} aria-hidden="true">
@@ -49,12 +58,6 @@ const services = [
       ))}
     </div>
 
-    <div class="service-cta">
-      <p class="service-cta-text">
-        OEM・ODMのご相談も承ります。まずはお気軽にお問い合わせください。
-      </p>
-      <a href="#contact" class="btn btn-primary">お問い合わせ</a>
-    </div>
   </div>
 </section>
 
@@ -129,20 +132,50 @@ const services = [
   .service-card {
     position: relative;
     flex: 1;
-    max-width: 260px;
+    max-width: 280px;
+    min-width: 220px;
     background: var(--color-bg);
-    padding: var(--spacing-xl) var(--spacing-lg);
+    padding: 0;
     border-radius: var(--radius-lg);
     text-align: left;
     border: 1px solid var(--color-border);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
     transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .service-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 24px rgba(0, 123, 167, 0.12);
     border-color: var(--color-primary);
+  }
+
+  /* ==========================================================================
+     Card Media & Body
+     ========================================================================== */
+
+  .service-card-media {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+  }
+
+  .service-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .service-card-body {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
   }
 
   /* ==========================================================================
@@ -242,10 +275,12 @@ const services = [
   }
 
   .service-description {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
     color: var(--color-text-secondary);
     line-height: var(--line-height-relaxed);
     margin: 0;
+    flex: 1;
+    word-break: break-word;
   }
 
   .service-cta {
@@ -308,6 +343,14 @@ const services = [
 
     .service-card {
       max-width: none;
+      padding: 0;
+    }
+
+    .service-card-media {
+      height: 120px;
+    }
+
+    .service-card-body {
       padding: var(--spacing-lg);
     }
 
