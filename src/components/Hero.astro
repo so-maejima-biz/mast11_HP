@@ -18,7 +18,7 @@
     </h1>
     <p class="hero-subtitle" data-animate data-animate-delay="2">
       企画から生産まで一貫して手がける、<br class="br-sp" />
-      モノづくりのプロフェッショナル集団
+      モノづくりの<span class="nowrap">プロフェッショナル集団</span>
     </p>
     <div class="hero-cta" data-animate data-animate-delay="3">
       <a href="#contact" class="btn btn-primary btn-lg">お問い合わせ</a>
@@ -67,7 +67,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    text-align: left;
     padding: var(--spacing-3xl);
     width: calc(100% - var(--spacing-3xl) * 2);
     max-width: 800px;
@@ -96,10 +96,15 @@
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: var(--spacing-2xl);
     line-height: var(--line-height-relaxed);
+    white-space: nowrap;
   }
 
   .br-sp {
     display: none;
+  }
+
+  .nowrap {
+    white-space: nowrap;
   }
 
   .hero-cta {
@@ -134,6 +139,19 @@
       min-height: 100svh;
     }
 
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      top: 72px;
+    }
+
+    .hero-bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
     .hero-content {
       left: 0;
       transform: none;
@@ -146,6 +164,11 @@
 
     .hero-title {
       font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      white-space: normal;
     }
 
     .br-sp {
