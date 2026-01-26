@@ -15,7 +15,7 @@ const services = [
   {
     number: '03',
     title: 'サンプル作製',
-    description: 'デザインを具現化するサンプル作製により、商品の完成形を実現します。',
+    description: 'デザインを具現化するサンプル作製により、商品の完成形を<span class="nowrap">実現します。</span>',
     image: '/images/sample.jpg',
   },
   {
@@ -44,7 +44,7 @@ const services = [
             <div class="service-card-body">
               <span class="service-number">{service.number}</span>
               <h3 class="service-title">{service.title}</h3>
-              <p class="service-description">{service.description}</p>
+              <p class="service-description" set:html={service.description}></p>
             </div>
           </div>
           {index < services.length - 1 && (
@@ -119,6 +119,10 @@ const services = [
 
   .br-pc {
     display: block;
+  }
+
+  .nowrap {
+    white-space: nowrap;
   }
 
   /* ==========================================================================
