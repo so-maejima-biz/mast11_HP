@@ -13,7 +13,10 @@ const footerLinks = [
   <div class="container">
     <div class="footer-content">
       <div class="footer-brand">
-        <span class="footer-logo">MAST11 Co., Ltd.</span>
+        <div class="footer-logo-group">
+          <span class="footer-logo">株式会社 マスト１１</span>
+          <span class="footer-logo-en">MAST11 Co., Ltd.</span>
+        </div>
         <p class="footer-tagline">モノづくりのプロフェッショナル集団</p>
       </div>
       <nav class="footer-nav" aria-label="フッターナビゲーション">
@@ -58,15 +61,29 @@ const footerLinks = [
     transform: scale(1.02);
   }
 
+  .footer-logo-group {
+    display: inline-block;
+  }
+
   .footer-logo {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: calc(var(--font-size-2xl) * 1.5);
-    font-weight: 700; /* Helvetica Bold */
+    font-weight: 700;
     color: var(--color-bg);
     letter-spacing: 0.05em;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     transition: text-shadow var(--transition-fast);
-    display: inline-block;
+    display: block;
+  }
+
+  .footer-logo-en {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.02em;
+    display: block;
+    text-align: right;
   }
 
   .footer-brand:hover .footer-logo {

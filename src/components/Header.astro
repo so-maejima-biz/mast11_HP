@@ -10,9 +10,9 @@ const navLinks = [
 
 <header class="header">
   <div class="container header-inner">
-    <a href="/" class="logo" aria-label="MAST11 Co., Ltd. ホームへ">
-      <span class="logo-main">MAST11</span>
-      <span class="logo-sub">Co., Ltd.</span>
+    <a href="/" class="logo" aria-label="株式会社 マスト１１ ホームへ">
+      <span class="logo-main">株式会社 マスト１１</span>
+      <span class="logo-sub">MAST11 Co., Ltd.</span>
     </a>
     <nav class="nav" aria-label="メインナビゲーション">
       <ul class="nav-list">
@@ -73,7 +73,7 @@ const navLinks = [
 
   .logo {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     text-decoration: none;
     transition: transform var(--transition-fast);
   }
@@ -83,33 +83,31 @@ const navLinks = [
   }
 
   .logo-main {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2.25rem;
+    font-family: "Noto Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-primary);
     letter-spacing: 0.03em;
-    line-height: 1;
+    line-height: 1.2;
     transition: color var(--transition-fast), font-size 0.3s ease;
   }
 
   .header--scrolled .logo-main {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
 
   .logo-sub {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 0.65rem;
     font-weight: 700;
     color: var(--color-primary);
     letter-spacing: 0.02em;
-    margin-left: 0.5rem;
-    align-self: flex-end;
-    padding-bottom: 0.15rem;
+    text-align: right;
     transition: color var(--transition-fast), font-size 0.3s ease;
   }
 
   .header--scrolled .logo-sub {
-    font-size: 0.75rem;
+    font-size: 0.55rem;
   }
 
   .logo:hover .logo-main,

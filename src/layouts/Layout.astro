@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'MAST11 Co., Ltd. - ものづくりのプロフェッショナル集団。フットウェア製品の企画・開発・生産を一貫して行います。' } = Astro.props;
+const { title, description = '株式会社 マスト１１（MAST11 Co., Ltd.）- ものづくりのプロフェッショナル集団。フットウェア製品の企画・開発・生産を一貫して行います。' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, 'https://www.mast11.com');
 ---
 
@@ -27,7 +27,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://www.mast11.com');
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:site_name" content="MAST11 Co., Ltd." />
+  <meta property="og:site_name" content="株式会社 マスト１１（MAST11 Co., Ltd.）" />
   <meta property="og:locale" content="ja_JP" />
   <!-- TODO: OGP画像を設定 -->
   <!-- <meta property="og:image" content="https://www.mast11.com/images/ogp.jpg" /> -->

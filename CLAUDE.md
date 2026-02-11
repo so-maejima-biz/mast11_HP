@@ -21,10 +21,18 @@
 
 ## よく使うコマンド
 ```bash
-npm run dev      # 開発サーバー起動
 npm run build    # ビルド
 npm run preview  # ビルド結果プレビュー
 ```
+
+### devサーバー起動（重要）
+Claude Code のバックグラウンドBashではポートバインドが不安定なため、`Start-Process` で独立プロセスとして起動すること：
+```powershell
+$env:PATH = "C:\Program Files\nodejs;" + $env:PATH
+cd C:\Users\somae\repos\mast11_HP
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c","npx astro dev --host" -PassThru
+```
+起動後、`netstat -ano | Select-String "4321"` でLISTENINGを確認してからユーザーに案内する。
 
 ## ディレクトリ構成
 ```bash
