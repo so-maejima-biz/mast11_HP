@@ -10,6 +10,7 @@
 - **外部画像への直リンク禁止**: 必ず `public/images/` にローカル保存
 - **スコープ厳守**: Phase2のページを勝手に追加しない
 - **小さく変更**: 変更 → 動作確認（npm run dev） → commit
+- **成果物はプロジェクト内に保存**: ドキュメントは `docs/`、コードは `src/` など、必ずプロジェクトディレクトリ内に作成する。プロジェクト外（`~/.claude/` 等）に成果物を残さない
 
 > 設計原則の詳細は `.claude/skills/` を参照
 
@@ -52,6 +53,7 @@ tree -I "node_modules|dist|.git" --dirsfirst
 - `00_project_scope.md` - スコープ定義
 - `02_build_deploy_flow.md` - デプロイ手順
 - `03_contact_form_spec.md` - フォーム仕様
+- `cloudflare_deployment_todo.md` - 公開準備・Resend設定・デプロイ手順
 
 ## 個人用メモ
 端末固有の設定は `CLAUDE.local.md` に記載（git管理外）。

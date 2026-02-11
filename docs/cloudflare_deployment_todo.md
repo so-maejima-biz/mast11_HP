@@ -110,11 +110,12 @@
 - [ ] お問い合わせ受信先メールアドレスを確認
 - [ ] Resendに使うメールアドレスを確認
 
-### Step 2: Resendアカウント作成（私のメールで仮作成）
-- [ ] https://resend.com で私のメールアドレスで登録
-- [ ] APIキーを発行（API Keys → Create API Key）
-- [ ] ドメイン認証を追加（Domains → Add Domain → mast11.com）
-- [ ] 表示されたDNSレコード（TXT 2-3件）をメモ
+### Step 2: Resendアカウント作成・設定
+- [x] https://resend.com で私のメールアドレスで登録
+- [x] APIキーを発行（API Keys → Create API Key → Name: 任意、Permission: Sending access）
+- [x] **キーは一度しか表示されない**のですぐにメモ
+- [x] ドメイン認証を追加（Domains → Add Domain → mast11.com）
+- [x] 表示されたDNSレコード（TXT 2-3件、MX 1件）を下記 Step 3-2 のテーブルに記入
 
 ### Step 3: お名前.comでDNS設定
 
@@ -131,43 +132,86 @@
 > その場合はAレコード（Cloudflare PagesのIP）を使用するか、
 > wwwのみ設定してリダイレクトする方法を検討。
 
-**3-2: メール送信用のTXTレコード（Resend認証）**
+**3-2: メール送信用のDNSレコード（Resend認証）**
 
-Resendが指示するレコードを追加（通常2-3件）
+Resendが指示するレコードを追加（4件）
 
-| ホスト名 | タイプ | 値 |
-|----------|--------|-----|
-| （Resend指定） | TXT | （Resend指定） |
-| （Resend指定） | TXT | （Resend指定） |
+| ホスト名 | タイプ | 値 | 優先度 |
+|----------|--------|-----|--------|
+| `resend._domainkey` | TXT | `p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDO6SWEa+VfJj0WopfJ2qZiyJgECGDTAwvhXunv4UY3DJew6Yy4aH3t2R7LZlic20UhYqX0wr/JAIspyhtNIDNI6v7w90zaQ12qB6SIpJOkWxHBUoMMag2VccESirPo0cjh+zP8nDEW+mpjwD6kgAgn+eA2Pyem5oBfDLiFQTn0TQIDAQAB` | - |
+| `send` | MX | `feedback-smtp.ap-northeast-1.amazonses.com` | 10 |
+| `send` | TXT | `v=spf1 include:amazonses.com ~all` | - |
+| `_dmarc` | TXT | `v=DMARC1; p=none;` | - |
 
-### Step 4: Cloudflare Pages設定
+**3-3: Resend でドメイン認証を確認**
 
-**方法Aの場合（開発者アカウント）：**
-- [ ] mast11-hp.pages.devにカスタムドメインを追加
-  - Custom domains → Add domain → `mast11.com`
-  - （任意）`www.mast11.com` も追加
-- [ ] 環境変数を設定：
-  | 変数名 | 値 |
-  |--------|-----|
-  | `TO_EMAIL` | お客様の受信用メールアドレス |
-  | `RESEND_API_KEY` | Step 2で発行したAPIキー |
+- [x] DNS 反映を待つ（数分〜数時間） ← お名前.com での DNS レコード追加済み（2026-02-11）
+- [x] Resend ダッシュボード → Domains → `mast11.com` の **Verify** をクリック
+- [x] ステータスが **Verified** になった（DKIM, SPF, MX 全て Verified — 2026-02-11 確認済み）
 
-**方法Bの場合（お客様アカウント）：**
-- [ ] お客様のCloudflareにログイン
-- [ ] 新しいPagesプロジェクトを作成
-  - Workers & Pages → Create → Pages
-  - GitHubリポジトリを連携 または Direct Upload
-  - ビルド設定: Framework=Astro, Build command=`npm run build`, Output=`dist`
-- [ ] 環境変数を設定（上記と同じ）
-- [ ] カスタムドメインを追加（上記と同じ）
+### Step 4: ローカル環境変数を設定（`.dev.vars`）
 
-### Step 5: 動作確認
-- [ ] https://mast11.com にアクセスして表示確認
+プロジェクトルートに `.dev.vars` を作成（`.gitignore` に含まれているので git にはコミットされない）:
+
+```
+TO_EMAIL=受信したいメールアドレス（カンマ区切りで複数可）
+RESEND_API_KEY=re_ここにAPIキー
+```
+
+例:
+```
+TO_EMAIL=person1@example.com,person2@example.com
+RESEND_API_KEY=re_abc123xyz
+```
+
+ローカルで動作確認:
+```powershell
+$env:PATH = "C:\Program Files\nodejs;" + $env:PATH
+npm run preview
+```
+> ※ PowerShell で `npm` が見つからない場合は、上記のように PATH を通してから実行する
+
+- [x] `.dev.vars` を作成・設定済み（2026-02-11）
+- [x] http://localhost:8788 でフォーム送信テスト（2026-02-11 確認済み）
+- [x] `TO_EMAIL` に指定したアドレスにメールが届くか確認（2026-02-11 確認済み）
+
+### Step 5: Cloudflare Pages設定
+
+> **決定事項:** 開発者アカウント（方法A）で運用。カスタムドメインは `www.mast11.com` を使用（DNS移行不要のCNAMEセットアップ）。
+
+**5-1: カスタムドメイン追加**
+- [x] カスタムドメインタブ → `www.mast11.com` を追加
+- [x] 「CNAMEセットアップを開始」を選択（DNS移行なし）
+- [x] お名前.comで CNAME レコードを追加（`www` → `mast11-hp.pages.dev`）（2026-02-11）
+- [ ] Cloudflare で「DNSレコードを確認」→ アクティブになる（DNS反映待ち）
+
+**5-2: 環境変数設定**
+- [x] 設定タブ → Variables and Secrets で以下を追加（2026-02-11 設定済み）
+
+  | 変数名 | Type |
+  |--------|------|
+  | `TO_EMAIL` | テキスト |
+  | `RESEND_API_KEY` | シークレット |
+
+  Environment: Production
+
+**5-3: デプロイ反映**
+- [ ] Deployments → 最新デプロイの … → Retry deployment（環境変数を反映させる）
+
+**5-4: `mast11.com` → `www.mast11.com` リダイレクト設定**
+- [ ] お名前.comの転送設定で `mast11.com` → `https://www.mast11.com` にリダイレクト
+
+### Step 6: 本番動作確認
+- [ ] https://www.mast11.com にアクセスして表示確認
 - [ ] お問い合わせフォームからテスト送信
 - [ ] 指定メールアドレスに届くか確認
 - [ ] スマートフォンで表示確認
+- [ ] 届かない場合:
+  - Resend ダッシュボード → Logs でエラー確認
+  - Cloudflare ダッシュボード → Functions → ログ確認
+  - 迷惑メールフォルダも確認
 
-### Step 6: Resendアカウントをお客様に移行
+### Step 7: Resendアカウントをお客様に移行
 - [ ] Resendにログイン → Settings → Account
 - [ ] メールアドレスを私のアドレス → お客様のアドレスに変更
 - [ ] お客様のメールに届く確認メールをクリックしてもらう（お客様に依頼）
@@ -180,7 +224,7 @@ Resendが指示するレコードを追加（通常2-3件）
 > その後、以下のURLからパスワードを設定してください。
 > https://resend.com/forgot-password 」
 
-### Step 7: 後処理
+### Step 8: 後処理
 - [ ] 方法Bの場合：開発環境（私のアカウント）を削除
 - [ ] お客様にアカウント情報一覧を共有
 
