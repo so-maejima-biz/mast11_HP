@@ -285,20 +285,20 @@ PRODUCTION & QUALITY ────────────────
 | # | ラベル | 種別 | リンク先 |
 |---|--------|------|---------|
 | 1 | TOP | 通常リンク | `/` |
-| 2 | FACTORY | 通常リンク | `/development-quality` |
+| 2 | QUALITY | 通常リンク | `/development-quality` |
 | 3 | CONTACT | 通常リンク | `/#contact` |
 
 #### 4.1.1 development-quality ページでのヘッダー動作
 
 - **TOP** は `/` への通常リンク。クリックでTOPページに遷移する
-- **FACTORY** は現在のページなのでアクティブ状態のスタイルを適用（`--color-primary` テキスト色、下線）
+- **QUALITY** は現在のページなのでアクティブ状態のスタイルを適用（`--color-primary` テキスト色、下線）
 - **CONTACT** は `/#contact` への通常リンク。TOPページの CONTACT セクションに遷移する
 
 #### 4.1.2 モバイルナビゲーション（SP 768px以下）
 
 | 項目 | 内容 |
 |------|------|
-| 構造 | ハンバーガーメニュー内に TOP / FACTORY / CONTACT の3つのシンプルリンクを縦に表示 |
+| 構造 | ハンバーガーメニュー内に TOP / QUALITY / CONTACT の3つのシンプルリンクを縦に表示 |
 | サブメニュー | なし（アコーディオン展開なし） |
 | 動作 | リンクタップでページ遷移し、メニューを閉じる |
 
@@ -355,7 +355,7 @@ SERVICEセクションの `.service-grid` 直後に、右寄せのテキスト�
 
 | ファイル | 変更内容 |
 |---------|---------|
-| `src/components/Header.astro` | navLinks を3つのシンプルリンク（TOP/FACTORY/CONTACT）に変更。ドロップダウン機能を削除 |
+| `src/components/Header.astro` | navLinks を3つのシンプルリンク（TOP/QUALITY/CONTACT）に変更。ドロップダウン機能を削除 |
 | `src/components/Footer.astro` | footerLinks をすべて削除。ブランド情報+コピーライトのみ残す |
 | `src/components/Hero.astro` | `<section>` に `id="hero"` を追加 |
 | `src/components/DQAccordion.astro` | 2カテゴリ構成に変更。サムネイル追加。画像グリッド+ライトボックス実装。CSS grid-template-rows アニメーションに変更。images 配列対応 |
