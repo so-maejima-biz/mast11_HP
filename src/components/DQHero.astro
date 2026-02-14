@@ -1,0 +1,96 @@
+---
+---
+
+<section class="dq-hero">
+  <div class="container">
+    <div class="dq-hero-inner" data-animate>
+      <span class="dq-hero-label">DEVELOPMENT & QUALITY</span>
+      <h1 class="dq-hero-title">設計から品質保証まで、<br class="br-pc" />妥協なき一貫体制</h1>
+      <p class="dq-hero-lead">
+        私たちは、デザインから最終検査に至るすべての工程を<br class="br-pc" />
+        自社管理のもとで行っています。<br />
+        各工程における確かな技術と徹底した品質基準が、<br class="br-pc" />
+        信頼される製品づくりの基盤です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dq-hero {
+    padding: var(--spacing-4xl) 0 var(--spacing-3xl);
+    background: var(--color-bg-alt);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .dq-hero-inner {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .dq-hero-label {
+    display: inline-block;
+    font-size: calc(var(--font-size-base) * 2.5);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    letter-spacing: 0.15em;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .dq-hero-label::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    max-width: 80px;
+    height: 3px;
+    background: var(--color-primary);
+  }
+
+  .dq-hero-title {
+    font-size: calc(var(--font-size-3xl) * 1.5);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xl);
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  .dq-hero-lead {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  .br-pc {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .dq-hero {
+      padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    }
+
+    .dq-hero-label {
+      font-size: calc(var(--font-size-base) * 1.8);
+    }
+
+    .dq-hero-title {
+      font-size: clamp(1.5rem, 5.5vw, 2.25rem);
+    }
+
+    .dq-hero-lead {
+      font-size: var(--font-size-base);
+    }
+
+    .br-pc {
+      display: none;
+    }
+  }
+</style>

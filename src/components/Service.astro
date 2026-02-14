@@ -58,6 +58,15 @@ const services = [
       ))}
     </div>
 
+    <div class="service-cta-link" data-animate>
+      <a href="/development-quality" class="service-detail-link">
+        品質へのこだわりを詳しく見る
+        <svg class="service-detail-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
   </div>
 </section>
 
@@ -306,6 +315,38 @@ const services = [
     margin-bottom: var(--spacing-lg);
   }
 
+  .service-cta-link {
+    text-align: right;
+    margin-top: var(--spacing-lg);
+  }
+
+  .service-detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    padding: var(--spacing-sm) 0;
+    transition: color var(--transition-fast), gap var(--transition-fast);
+  }
+
+  .service-detail-link:hover {
+    color: var(--color-primary-dark);
+    gap: var(--spacing-sm);
+    text-decoration: none;
+  }
+
+  .service-detail-arrow {
+    transition: transform var(--transition-fast);
+  }
+
+  .service-detail-link:hover .service-detail-arrow {
+    transform: translateX(2px);
+  }
+
   /* ==========================================================================
      Tablet (768px - 1024px): コネクタ非表示、2×2グリッド
      ========================================================================== */
@@ -368,6 +409,10 @@ const services = [
 
     .service-number {
       font-size: var(--font-size-xl);
+    }
+
+    .service-cta-link {
+      text-align: center;
     }
 
     /* SP: 縦向きコネクタ（ダブルシェブロン下向き） */

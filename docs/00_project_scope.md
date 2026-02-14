@@ -17,8 +17,9 @@ MAST11コーポレートサイトの新規構築プロジェクト
 | SEO | 指名検索（社名検索）で出ればOK |
 | 素材 | プレースホルダ画像（後で差し替え） |
 
-### Phase2（将来対応）
+### Phase2（個別ページ追加）
 
+- **DEVELOPMENT & QUALITY ページ** ← 対応中（`/development-quality`）
 - OEM ページ
 - OUR STORY ページ
 - COMPANY ページ

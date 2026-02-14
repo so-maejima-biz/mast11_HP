@@ -1,0 +1,772 @@
+---
+const categories = [
+  {
+    labelEn: 'DEVELOPMENT',
+    labelJa: '企画・開発',
+    steps: [
+      {
+        number: '01',
+        process: 'デザイン',
+        title: '製品として成立するデザインを、設計から提案',
+        description: 'ヒアリングを通じ、素材特性やフィッティングまで計算に入れた「製品として成立するデザイン」をご提案します。見た目の美しさと機能性を両立させる「確かな設計」が私たちの強みです。また、商品の方向性を定めるデザインディレクション（企画の方向性策定）からのサポートも可能です。',
+        images: [{ src: '/images/phase2_工場背景/デザイン１.png', alt: 'シューズデザインの設計プロセス' }, { src: '/images/phase2_工場背景/デザイン２.png', alt: 'デザインディレクションの提案資料' }, { src: '/images/phase2_工場背景/デザイン３.png', alt: '素材特性を考慮したデザイン設計' }],
+      },
+      {
+        number: '02',
+        process: 'ラスト設計',
+        title: '基線配列から構築する、論理的なラスト設計',
+        description: '私たちは既存のラストを流用するだけではありません。靴の設計において最も重要な「基線配列」の構築から自社で行うことで、履き心地と機能性を両立させた最適なラストを設計します。これにより、シューズの用途や目的に対して、最適かつ高精度なフィッティングを持つラスト設計が可能です。',
+        images: [{ src: '/images/phase2_工場背景/ラスト設計１.jpg', alt: 'ラスト（靴型）の設計工程' }, { src: '/images/phase2_工場背景/ラスト設計２.png', alt: '基線配列に基づくラスト構築' }],
+      },
+      {
+        number: '03',
+        process: 'ソール金型設計',
+        title: '多段階検証で精度を高める、ソール金型設計',
+        description: '当社では、2D図面による構造確認、モックアップ（試作）による現物検証、そして最終的な3Dデータまで、着実なステップを踏んで設計精度を高めています。各工程の検証を繰り返すことにより、量産不具合を最小限に抑制。機能性とデザイン性を高次元で両立させたソール設計を追求しています。',
+        images: [{ src: '/images/phase2_工場背景/ソール金型設計１.jpg', alt: 'ソール金型の2D図面確認' }, { src: '/images/phase2_工場背景/ソール金型設計２.png', alt: 'モックアップによる現物検証' }, { src: '/images/phase2_工場背景/ソール金型設計３.png', alt: '3Dデータによる最終設計' }],
+      },
+      {
+        number: '04',
+        process: 'パターン設計',
+        title: '量産精度とフォルムを両立する、パターン設計',
+        description: '設計段階の「紙型」「抜き型」の二段階で入念な適合確認を行い、量産時のズレを未然に防ぎます。ラストに合わせた最適なグレーディングピッチ(サイズ展開)の検証に加え、縫い代、縫製が正しくできる設計の紙型かの確認を行います。現場での生産効率と、安定した品質を両立するパターン設計を導き出します。',
+        images: [{ src: '/images/phase2_工場背景/パターン設計１.png', alt: '紙型による適合確認' }, { src: '/images/phase2_工場背景/パターン設計２.png', alt: '抜き型の精度検証' }, { src: '/images/phase2_工場背景/パターン設計３.png', alt: 'グレーディングピッチの検証' }],
+      },
+    ],
+  },
+  {
+    labelEn: 'PRODUCTION & QUALITY',
+    labelJa: '生産・品質管理',
+    steps: [
+      {
+        number: '05',
+        process: '縫製',
+        title: '設計をカタチにする、縫製プロセス管理',
+        description: 'ミシンのピッチ（運針）やテンション、縫製位置がSOP（標準作業手順書）および紙型設計通りであるかを確認していきます。アームミシンや平ミシンなど、パーツや工程に合わせた最適な機器選択がなされているかを確認し、美しい仕上がりを追求します。また、QC（品質管理）検査手順に基づき全数検査を実施。次工程へ不良を流さない、安定した品質体制を構築しています。',
+        images: [{ src: '/images/phase2_工場背景/縫製1.png', alt: '縫製工程のプロセス管理' }, { src: '/images/phase2_工場背景/縫製２.png', alt: 'ミシン工程の品質確認' }],
+      },
+      {
+        number: '06',
+        process: '成型(糊塗り)',
+        title: '耐久性と美しさを支える、精密な成型管理',
+        description: '罫書き線に沿った正確な塗布、糊の2回塗りの徹底、刷毛の定期交換に至るまで細かく管理。剥離トラブルを未然に防ぎ、安定品質を維持します。糊を塗る位置、底貼りの手順、圧着条件など、すべての工員がSOP（標準作業手順書）通りに作業しているかを厳格に管理。さらに紫外線によるカビ対策など、出荷後の品質まで見据えた管理を徹底しています。',
+        images: [{ src: '/images/phase2_工場背景/成型(糊塗り）.png', alt: '糊塗り工程の品質管理' }, { src: '/images/phase2_工場背景/成型(糊塗り）３.png', alt: '底貼り工程の管理体制' }],
+      },
+      {
+        number: '07',
+        process: 'QC/QA',
+        title: '妥協を許さない、多重検査体制',
+        description: 'QC(品質管理)検査に加え、さらに客観的な視点を持つQA（品質保証）チームによる全数検査を実施しています。QA業務は、独自の試験に合格し、高度な検品スキルを認められた認定スタッフのみが担当します。QCとQAの多重チェック体制により、ナショナルブランド水準の厳しい品質基準をクリアした製品のみをお届けします。',
+        images: [{ src: '/images/phase2_工場背景/QC_QA.png', alt: 'QC・QAによる多重品質検査' }],
+      },
+      {
+        number: '08',
+        process: '検針',
+        title: '安全と安心を担保する、徹底した検針体制',
+        description: '資材・アッパー・製品（2回）の計4回におよぶ多重検針を実施。工程ごとにリスクを摘み取る多重検針を行っています。折れ針の100%回収・復元確認や、針在庫管理台帳による管理を徹底し、現場から「原因」を排除します。また、検針機の感度を維持するため、9箇所の感度確認を定時に実施。常に正常な状態で機能していることを確認し、日本基準の安全性を確実なものにします。',
+        images: [{ src: '/images/phase2_工場背景/検針1.png', alt: '検針工程の多重チェック' }, { src: '/images/phase2_工場背景/検針２.png', alt: '折れ針の回収・復元確認' }, { src: '/images/phase2_工場背景/検針３.png', alt: '検針機の感度確認' }],
+      },
+      {
+        number: '09',
+        process: '製品強度試験',
+        title: '数値で裏付ける、客観的な品質証明',
+        description: '製造ロットごとに、ハトメ（紐通し穴）の引張強度試験や、ソールの屈曲試験、長期間の保管や使用を想定した老化試験を実施しています。また、接着不良を未然に防ぐため、製品の剥離強度試験を毎日実施。数値に基づく客観的な品質管理を実施し、常に安定した接着クオリティを維持しているかを確認していきます。',
+        images: [{ src: '/images/phase2_工場背景/製品強度試験.png', alt: '引張強度試験の実施' }],
+      },
+      {
+        number: '10',
+        process: '材料物性試験',
+        title: '開発から量産まで一貫した、素材品質の監視',
+        description: '開発時だけでなく、実際の生産工程においても材料単体の強度や染色堅牢度を厳格にテスト。量産材料が当初の設計スペックを満たしているかを常に監視し、素材の品質ブレによる製品不良を未然に防ぎます。スポーツブランドやベビーシューズに求められる、物性要求にも確かなデータで応えます。',
+        images: [{ src: '/images/phase2_工場背景/材料物性試験1.png', alt: '材料強度の物性試験' }, { src: '/images/phase2_工場背景/材料物性試験２.png', alt: '染色堅牢度テスト' }, { src: '/images/phase2_工場背景/材料物性試験３.png', alt: '量産材料のスペック監視' }],
+      },
+    ],
+  },
+];
+---
+
+<section class="dq-accordion">
+  <div class="container">
+    {categories.map((category, catIndex) => (
+      <div class={`accordion-category ${catIndex > 0 ? 'accordion-category--spaced' : ''}`}>
+        {/* Category Header */}
+        <div class="category-header">
+          <div class="category-label">
+            <span class="category-label-en">{category.labelEn}</span>
+            <span class="category-label-ja">{category.labelJa}</span>
+          </div>
+          <div class="category-line"></div>
+        </div>
+
+        {/* Accordion Items */}
+        <div class="accordion" role="list">
+          {category.steps.map((step, index) => {
+            const globalIndex = catIndex === 0 ? index : index + categories[0].steps.length;
+            return (
+              <div
+                class="accordion-item"
+                data-animate
+                data-animate-delay={Math.min(index, 5).toString()}
+                role="listitem"
+              >
+                <button
+                  class="accordion-header"
+                  aria-expanded="false"
+                  aria-controls={`accordion-content-${step.number}`}
+                  type="button"
+                >
+                  <span class={`accordion-badge ${parseInt(step.number) <= 4 ? 'badge--design' : 'badge--quality'}`}>{step.number}</span>
+                  <div class="accordion-header-text">
+                    <span class="accordion-process">{step.process}</span>
+                    <h2 class="accordion-title">{step.title}</h2>
+                  </div>
+                  <div class="accordion-thumb">
+                    <img src={step.images[0].src} alt="" loading="lazy" />
+                  </div>
+                  <span class="accordion-chevron" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+                <div
+                  id={`accordion-content-${step.number}`}
+                  class="accordion-content"
+                  role="region"
+                  aria-hidden="true"
+                  aria-labelledby={`accordion-header-${step.number}`}
+                >
+                  <div class="accordion-body">
+                    <div class="accordion-gallery">
+                      {step.images.map((img, imgIdx) => (
+                        <button class="gallery-item" type="button" data-lightbox-src={img.src} data-lightbox-alt={img.alt}>
+                          <img src={img.src} alt={img.alt} loading="lazy" />
+                        </button>
+                      ))}
+                    </div>
+                    <div class="accordion-text">
+                      <p class="accordion-description">{step.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {/* Lightbox */}
+  <div class="lightbox" id="lightbox" hidden aria-modal="true" role="dialog" aria-label="画像拡大表示">
+    <button class="lightbox-close" type="button" aria-label="閉じる">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="lightbox-prev" type="button" aria-label="前の画像">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" src="" alt="" />
+    </div>
+    <button class="lightbox-next" type="button" aria-label="次の画像">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ===== Accordion open/close =====
+    const headers = document.querySelectorAll('.accordion-header');
+
+    headers.forEach((header) => {
+      header.addEventListener('click', () => {
+        const button = header as HTMLButtonElement;
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        const contentId = button.getAttribute('aria-controls');
+        if (!contentId) return;
+        const content = document.getElementById(contentId);
+        if (!content) return;
+
+        if (expanded) {
+          button.setAttribute('aria-expanded', 'false');
+          content.setAttribute('aria-hidden', 'true');
+        } else {
+          button.setAttribute('aria-expanded', 'true');
+          content.setAttribute('aria-hidden', 'false');
+          // Scroll into view if needed
+          requestAnimationFrame(() => {
+            const rect = button.getBoundingClientRect();
+            if (rect.top < 80) {
+              button.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        }
+      });
+
+      header.addEventListener('keydown', (e: Event) => {
+        const keyEvent = e as KeyboardEvent;
+        if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+          keyEvent.preventDefault();
+          (header as HTMLButtonElement).click();
+        }
+      });
+    });
+
+    // ===== Lightbox =====
+    const lightbox = document.getElementById('lightbox') as HTMLElement | null;
+    const lightboxImg = lightbox?.querySelector('.lightbox-img') as HTMLImageElement | null;
+    const lightboxClose = lightbox?.querySelector('.lightbox-close') as HTMLButtonElement | null;
+    const lightboxPrev = lightbox?.querySelector('.lightbox-prev') as HTMLButtonElement | null;
+    const lightboxNext = lightbox?.querySelector('.lightbox-next') as HTMLButtonElement | null;
+
+    let currentImages: { src: string; alt: string }[] = [];
+    let currentIndex = 0;
+    let previousFocus: HTMLElement | null = null;
+
+    function openLightbox(images: { src: string; alt: string }[], startIndex: number) {
+      if (!lightbox || !lightboxImg) return;
+      currentImages = images;
+      currentIndex = startIndex;
+      previousFocus = document.activeElement as HTMLElement;
+      showCurrentImage();
+      lightbox.removeAttribute('hidden');
+      lightboxClose?.focus();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      previousFocus?.focus();
+    }
+
+    function showCurrentImage() {
+      if (!lightboxImg) return;
+      const img = currentImages[currentIndex];
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      // Show/hide prev/next based on image count
+      if (currentImages.length <= 1) {
+        lightboxPrev?.setAttribute('hidden', '');
+        lightboxNext?.setAttribute('hidden', '');
+      } else {
+        lightboxPrev?.removeAttribute('hidden');
+        lightboxNext?.removeAttribute('hidden');
+      }
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      showCurrentImage();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      showCurrentImage();
+    }
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxPrev?.addEventListener('click', prevImage);
+    lightboxNext?.addEventListener('click', nextImage);
+
+    // Click overlay to close
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox || (e.target as HTMLElement).classList.contains('lightbox-content')) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    lightbox?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+      // Focus trap
+      if (e.key === 'Tab') {
+        const focusable = lightbox.querySelectorAll('button:not([hidden])') as NodeListOf<HTMLButtonElement>;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    // Gallery item clicks
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      item.addEventListener('click', () => {
+        const btn = item as HTMLButtonElement;
+        // Collect all images in the same accordion body
+        const body = btn.closest('.accordion-body');
+        if (!body) return;
+        const items = Array.from(body.querySelectorAll('.gallery-item'));
+        const images = items.map(el => ({
+          src: (el as HTMLElement).dataset.lightboxSrc || '',
+          alt: (el as HTMLElement).dataset.lightboxAlt || '',
+        }));
+        const idx = items.indexOf(btn);
+        openLightbox(images, idx >= 0 ? idx : 0);
+      });
+    });
+  });
+</script>
+
+<style>
+  /* ==========================================================================
+     Accordion Section
+     ========================================================================== */
+  .dq-accordion {
+    padding: var(--spacing-4xl) 0;
+    background: var(--color-bg);
+  }
+
+  .accordion {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ==========================================================================
+     Category Header
+     ========================================================================== */
+  .accordion-category--spaced {
+    margin-top: var(--spacing-3xl);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .category-label {
+    flex-shrink: 0;
+  }
+
+  .category-label-en {
+    display: block;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    line-height: 1.3;
+  }
+
+  .category-label-ja {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-xs);
+  }
+
+  .category-line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  /* ==========================================================================
+     Accordion Item
+     ========================================================================== */
+  .accordion-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .accordion-item:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* ==========================================================================
+     Accordion Header (Button)
+     ========================================================================== */
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-family-base);
+    transition: background-color var(--transition-base);
+  }
+
+  .accordion-header:hover {
+    background-color: var(--color-bg-alt);
+  }
+
+  .accordion-header:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-radius: var(--radius-sm);
+  }
+
+  /* ==========================================================================
+     Badge (Number Circle)
+     ========================================================================== */
+  .accordion-badge {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  /* DESIGN category (01-04): primary color */
+  .badge--design {
+    background-color: var(--color-primary);
+  }
+
+  /* QUALITY category (05-10): darker tone */
+  .badge--quality {
+    background-color: var(--color-primary-dark);
+  }
+
+  /* ==========================================================================
+     Header Text
+     ========================================================================== */
+  .accordion-header-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .accordion-process {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-primary);
+    letter-spacing: 0.08em;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .accordion-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    line-height: var(--line-height-tight);
+    margin: 0;
+  }
+
+  /* ==========================================================================
+     Thumbnail in Closed State
+     ========================================================================== */
+  .accordion-thumb {
+    flex-shrink: 0;
+    width: 80px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    transition: transform 150ms ease;
+  }
+
+  .accordion-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .accordion-header:hover .accordion-thumb {
+    transform: scale(1.03);
+  }
+
+  /* ==========================================================================
+     Chevron
+     ========================================================================== */
+  .accordion-chevron {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    transition: transform 300ms ease;
+  }
+
+  .accordion-header[aria-expanded="true"] .accordion-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* ==========================================================================
+     Accordion Content (CSS Grid Animation)
+     ========================================================================== */
+  .accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 350ms ease, opacity 300ms ease;
+  }
+
+  .accordion-content[aria-hidden="false"] {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .accordion-body {
+    display: flex;
+    gap: var(--spacing-xl);
+    overflow: hidden;
+    padding: 0 var(--spacing-md);
+  }
+
+  .accordion-content[aria-hidden="false"] .accordion-body {
+    padding-bottom: var(--spacing-lg);
+  }
+
+  /* ==========================================================================
+     Image Gallery Grid
+     ========================================================================== */
+  .accordion-gallery {
+    flex-shrink: 0;
+    width: 340px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  /* When only 1 image, use single column with constrained width */
+  .accordion-gallery:has(.gallery-item:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 170px;
+  }
+
+  .gallery-item {
+    display: block;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--color-bg-alt);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .gallery-item:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ==========================================================================
+     Accordion Text Wrapper
+     ========================================================================== */
+  .accordion-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* ==========================================================================
+     Description Text
+     ========================================================================== */
+  .accordion-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+
+  /* ==========================================================================
+     Lightbox
+     ========================================================================== */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 250ms ease;
+  }
+
+  .lightbox:not([hidden]) {
+    opacity: 1;
+  }
+
+  .lightbox[hidden] {
+    display: none;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-full);
+    transition: background var(--transition-fast);
+    z-index: 1;
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-full);
+    transition: background var(--transition-fast);
+    z-index: 1;
+  }
+
+  .lightbox-prev { left: var(--spacing-lg); }
+  .lightbox-next { right: var(--spacing-lg); }
+
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .lightbox-content {
+    max-width: 90vw;
+    max-height: 85vh;
+  }
+
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+  }
+
+  /* Hide prev/next when only 1 image */
+  .lightbox-prev[hidden],
+  .lightbox-next[hidden] {
+    display: none;
+  }
+
+  /* ==========================================================================
+     Stagger animation delays (up to 5)
+     ========================================================================== */
+  [data-animate-delay="5"] {
+    transition-delay: 0.5s;
+  }
+
+  /* ==========================================================================
+     Reduced Motion
+     ========================================================================== */
+  @media (prefers-reduced-motion: reduce) {
+    .accordion-content {
+      transition: none;
+    }
+
+    .accordion-chevron {
+      transition: none;
+    }
+
+    .lightbox {
+      transition: none;
+    }
+  }
+
+  /* ==========================================================================
+     Responsive: SP (768px and below)
+     ========================================================================== */
+  @media (max-width: 768px) {
+    .dq-accordion {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .accordion-category--spaced {
+      margin-top: var(--spacing-2xl);
+    }
+
+    .category-label-en {
+      font-size: var(--font-size-lg);
+    }
+
+    .accordion-header {
+      padding: var(--spacing-md) var(--spacing-sm);
+      gap: var(--spacing-sm);
+    }
+
+    .accordion-title {
+      font-size: var(--font-size-base);
+      overflow-wrap: break-word;
+    }
+
+    .accordion-description {
+      overflow-wrap: break-word;
+    }
+
+    .accordion-thumb {
+      width: 64px;
+      height: 44px;
+    }
+
+    .accordion-header:hover .accordion-thumb {
+      transform: none;
+    }
+
+    .accordion-header:hover {
+      background-color: transparent;
+    }
+
+    .accordion-body {
+      flex-direction: column;
+      gap: var(--spacing-md);
+      padding: 0 var(--spacing-sm);
+    }
+
+    .accordion-gallery {
+      width: 100%;
+    }
+
+    .accordion-content[aria-hidden="false"] .accordion-body {
+      padding-bottom: var(--spacing-md);
+    }
+
+    .gallery-item:hover {
+      transform: none;
+      box-shadow: none;
+    }
+
+    .lightbox-prev { left: var(--spacing-sm); }
+    .lightbox-next { right: var(--spacing-sm); }
+  }
+</style>

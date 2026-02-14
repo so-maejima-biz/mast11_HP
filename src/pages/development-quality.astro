@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import DQHero from '../components/DQHero.astro';
+import DQAccordion from '../components/DQAccordion.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'DEVELOPMENT & QUALITY | 株式会社 マスト１１（MAST11 Co., Ltd.）';
+const description = 'MAST11のシューズ製造工程と品質管理体制。デザインからラスト設計、ソール金型、縫製、QC/QA検査まで、一貫した管理体制で高品質な製品をお届けします。';
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <main id="main-content">
+    <DQHero />
+    <DQAccordion />
+    <section class="back-to-top-section">
+      <div class="container" style="display:flex;justify-content:center;padding-top:var(--spacing-3xl);padding-bottom:var(--spacing-3xl);">
+        <a href="/" class="btn btn-primary">&larr; TOPページへ戻る</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style is:global>
+  html {
+    scroll-padding-top: 80px;
+  }
+</style>
