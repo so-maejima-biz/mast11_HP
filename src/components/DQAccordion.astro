@@ -7,7 +7,7 @@ const categories = [
       {
         number: '01',
         process: 'デザイン',
-        title: '製品として成立するデザインを、設計から提案',
+        title: '設計から始まるシューズデザイン',
         description: 'ヒアリングを通じ、素材特性やフィッティングまで計算に入れた「製品として成立するデザイン」をご提案します。見た目の美しさと機能性を両立させる「確かな設計」が私たちの強みです。また、商品の方向性を定めるデザインディレクション（企画の方向性策定）からのサポートも可能です。',
         images: [{ src: '/images/phase2_工場背景/デザイン①.png', alt: 'シューズデザインの設計プロセス' }, { src: '/images/phase2_工場背景/デザイン②.png', alt: 'デザインディレクションの提案資料' }, { src: '/images/phase2_工場背景/デザイン③.jpg', alt: '素材特性を考慮したデザイン設計' }],
       },
@@ -473,8 +473,8 @@ const categories = [
      ========================================================================== */
   .accordion-thumb {
     flex-shrink: 0;
-    width: 80px;
-    height: 56px;
+    width: 168px;
+    height: 117px;
     border-radius: var(--radius-md);
     overflow: hidden;
     border: 1px solid var(--color-border);
@@ -540,7 +540,7 @@ const categories = [
      ========================================================================== */
   .accordion-gallery {
     flex-shrink: 0;
-    width: 340px;
+    width: 476px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);
@@ -549,7 +549,7 @@ const categories = [
   /* When only 1 image, use single column with constrained width */
   .accordion-gallery:has(.gallery-item:only-child) {
     grid-template-columns: 1fr;
-    max-width: 170px;
+    max-width: 238px;
   }
 
   .gallery-item {
@@ -735,8 +735,8 @@ const categories = [
     }
 
     .accordion-thumb {
-      width: 64px;
-      height: 44px;
+      width: 135px;
+      height: 93px;
     }
 
     .accordion-header:hover .accordion-thumb {
