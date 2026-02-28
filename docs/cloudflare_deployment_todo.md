@@ -201,7 +201,36 @@ npm run preview
 **5-4: `mast11.com` → `www.mast11.com` リダイレクト設定**
 - [ ] お名前.comの転送設定で `mast11.com` → `https://www.mast11.com` にリダイレクト
 
-### Step 6: 本番動作確認
+### Step 6: Google Search Console登録（検索エンジン対策）
+
+サイトをGoogle検索に載せるための設定。
+
+**6-1: サイトマップ自動生成の確認**
+- [ ] `@astrojs/sitemap` がインストール済みであること
+- [ ] `astro.config.mjs` に `integrations: [sitemap()]` が設定済みであること
+- [ ] `npm run build` で `sitemap-index.xml` が `dist/` に生成されること
+
+> ※新規プロジェクトでは初期構築時に `@astrojs/sitemap` を入れておくこと
+
+**6-2: Search Consoleにプロパティ追加**
+- [ ] https://search.google.com/search-console にアクセス
+- [ ] 「URLプレフィックス」を選択し、`https://www.mast11.com` を入力
+- [ ] 所有権の確認方法は **「HTMLタグ」** を選択（HTMLファイル方式はAstroビルドで中身が変わるため使えない）
+- [ ] 表示されたmetaタグを `src/layouts/Layout.astro` の `<head>` 内に追加：
+  ```html
+  <meta name="google-site-verification" content="（表示された文字列）" />
+  ```
+- [ ] commit & push → Cloudflareデプロイ完了を待つ
+- [ ] Search Consoleで「確認」ボタンを押し、「所有権を証明しました」と表示されること
+
+**6-3: サイトマップ送信**
+- [ ] Search Console左メニュー「サイトマップ」を開く
+- [ ] `https://www.mast11.com/sitemap-index.xml` を入力して送信
+- [ ] ステータスが「成功しました」になること
+
+> 検索結果への反映には数日〜数週間かかります。
+
+### Step 7: 本番動作確認
 - [ ] https://www.mast11.com にアクセスして表示確認
 - [ ] お問い合わせフォームからテスト送信
 - [ ] 指定メールアドレスに届くか確認
@@ -211,7 +240,7 @@ npm run preview
   - Cloudflare ダッシュボード → Functions → ログ確認
   - 迷惑メールフォルダも確認
 
-### Step 7: Resendアカウントをお客様に移行
+### Step 8: Resendアカウントをお客様に移行
 - [ ] Resendにログイン → Settings → Account
 - [ ] メールアドレスを私のアドレス → お客様のアドレスに変更
 - [ ] お客様のメールに届く確認メールをクリックしてもらう（お客様に依頼）
@@ -224,7 +253,7 @@ npm run preview
 > その後、以下のURLからパスワードを設定してください。
 > https://resend.com/forgot-password 」
 
-### Step 8: 後処理
+### Step 9: 後処理
 - [ ] 方法Bの場合：開発環境（私のアカウント）を削除
 - [ ] お客様にアカウント情報一覧を共有
 
