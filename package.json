@@ -9,8 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.6",
-    "@astrojs/cloudflare": "^12.5.1"
+    "@astrojs/cloudflare": "^12.5.1",
+    "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.16.6"
   },
   "devDependencies": {
     "wrangler": "^4.23.0"
