@@ -17,7 +17,7 @@ const companyInfo = {
   suppliers: 'ベトナム、カンボジア、中国の大手製靴工場',
   clients: '大手スポーツメーカー、大手スポーツ用品販売チェーン、大手アパレル販売チェーン等',
   affiliate: '株式会社クロステック',
-  mapQuery: '神戸市中央区栄町通二丁目4番13号',
+  mapQuery: '34.687066,135.187311',
 };
 ---
 
@@ -89,7 +89,7 @@ const companyInfo = {
       </div>
       <div class="company-map" data-animate data-animate-delay="2">
         <iframe
-          src={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.mapQuery)}&output=embed`}
+          src={`https://www.google.com/maps?q=${companyInfo.mapQuery}&z=17&output=embed`}
           width="100%"
           style="border:0;"
           allowfullscreen=""
