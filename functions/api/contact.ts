@@ -11,6 +11,7 @@ interface ContactFormData {
   name: string;
   email: string;
   company?: string;
+  phone?: string;
   message: string;
   website?: string; // honeypot
 }
@@ -62,6 +63,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     const email = sanitize(data.email || "");
     const message = sanitize(data.message || "");
     const company = sanitize(data.company || "");
+    const phone = sanitize(data.phone || "");
 
     if (!name || !email || !message) {
       return new Response(
@@ -91,6 +93,13 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
           success: false,
           error: "お問い合わせ内容が長すぎます",
         }),
+        { status: 400, headers },
+      );
+    }
+
+    if (phone.length > 20) {
+      return new Response(
+        JSON.stringify({ success: false, error: "電話番号が長すぎます" }),
         { status: 400, headers },
       );
     }
@@ -144,6 +153,9 @@ ${name}
 
 ■ 会社名
 ${company || "(未入力)"}
+
+■ 電話番号
+${phone || "(未入力)"}
 
 ■ メールアドレス
 ${email}
